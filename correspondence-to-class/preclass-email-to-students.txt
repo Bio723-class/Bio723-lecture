@@ -16,8 +16,7 @@ Paul Magwene
 
 Dear Bio 723 participants,
 
-Since our first class session is delayed a week, I'd like you to complete some basic tasks **BEFORE** our first class session.  This will allow us to get a jump start on our journey into statistical computing!
-
+Since our first class session is delayed a week, I'd like you to complete some basic tasks **BEFORE** our first class session.  This will allow us to get a jump start on our journey into scientific computing!
 
 1. Checkout the course wiki at https://github.com/Bio723-class/Bio723-lecture/wiki
 
@@ -27,10 +26,11 @@ Since our first class session is delayed a week, I'd like you to complete some b
 
     - RStudio is a convenient "front end" for working with R. You can download the free, open-source version of "RStudio Desktop" from this link: https://www.rstudio.com/products/rstudio/download/
 
-
 3. Read the Chapters 1 to 3 in the Bio 723 worbook (https://bio723-class.github.io/Bio723-book/index.html). As you read the workbook work through the included code examples.
 
 
+## Required background
+ 
 Bio 723 assumes you've got a working familiarity with basic statistical concepts (e.g. what would typically be covered in an intro biostats course).  This includes familiarity with standard measures of location (mean, median), spread (variation, standard deviation), and association (covariance, correlation) as well as working familiarity with the "standard toolbox" of statistical methods commonly employed in biological studies (t-tests, ANOVA, linear regression, Chi-squared tests, etc).  
 
 If your stats skills are rusty, a nice resource to review is a series of columns published in Nature Methods, entitled "Points of Significance". These points of significance columns review key statistical concepts, with the "working biologist" in mind.

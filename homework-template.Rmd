@@ -1,0 +1,104 @@
+---
+title: "Bio 723: Assignment XX -- Topic Name"
+author: "Your Name and NetID here!"
+output:
+  html_document:
+    highlight: default
+    fig_caption: true
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = FALSE, eval = TRUE, 
+                      warning = TRUE, comment=NA, cache = FALSE,
+                      fig.width = 6, fig.height = 4)
+```
+
+
+# Instructions <remove this section before submitting>
+
+Create an R Markdown document and answer the questions below using code blocks that generate the correct outputs. Feel free to also use explanatory text in your markdown document, however **each of your solutions should show how to generate the answer using R code**.
+
+**Please name your file in the following manner:**
+
+* `Lastname_Firstinitial_Assignment0X.Rmd` -- For example: `Magwene_P_Assignment01.Rmd`
+
+**When completed, submit your Markdown file (file ending in `.Rmd`)** via the appropriate submission section on Sakai.
+
+## Tips <remove this section before submitting>
+
+* There should be **one code block per (sub)question**. A good rule of thumb is that each unit of code that produces a "stand alone" answer should be in its own code block.
+
+* Format your code for readability.  This will help you debug your code and will help us grade your code, increasing the possibility you will get partial credit if you make a mistake somewhere along the line.
+
+* Use headers and bullet points to delineate different sections, questions, and sub-questions.
+
+* Libraries only need to be loaded once. Calls to `install.packages()` should **not** be included in your R Markdown document. 
+
+* Load data sources from URLs provided by the instructor, rather than local file paths on your computer.
+
+* Data structures and variables defined in one code block don't need to be repeated in subsequent code blocks (unless they've changed)
+
+* Don't include any unnecessary or extraneous code in your code blocks
+
+* If asked to evaluate code that raises an error, make sure to comment it out in your notebook so the notebook will knit
+
+* If the printed output is very long, assign the output to a variable and use functions like `head()` or `tail()` to show snippets of the output. 
+
+* When editing the markdown template remove unneeded text. For example, the text "Discussion of answer as needed" (part of the template) should not be left in your document. This whole section of tips should be removed too!
+
+* **Knit your code** -- knitting your code creates a "clean" environment in which your code is evaluated and run, helping you to check that your notebook produces the answers you expect.
+
+
+# Question 1
+
+###  Question 1a
+
+Repeat or summarize the question here.
+ 
+```{r}
+# your code here
+```
+  
+Discussion of answer as needed.
+ 
+
+### Question 1b
+
+Repeat or summarize the question here. 
+ 
+```{r}
+# your code here
+```
+  
+Discussion of answer as needed.
+  
+# Question 2
+
+### Question 2a
+
+Repeat or summarize the question here.
+ 
+```{r}
+# your code here
+```
+  
+Discussion of answer as needed.
+ 
+
+### Question 2b
+
+This question has several sub-questions
+
+  * Sub-question 1: summarize the question here 
+ 
+```{r}
+# your code here
+```
+
+  * Sub-question 2: summarize the question here
+
+```{r}
+# your code here
+```  
+
