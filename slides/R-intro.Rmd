@@ -1,0 +1,25 @@
+---
+title: "Bio 723: Statistical Computing for Biologists"
+author: "Paul M. Magwene"
+output: beamer_presentation
+fontsize: "10pt"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+options(width=50)
+```
+
+
+## Course Goals
+
+1. Develop a good working knowledge of R, a programming language and statistical computing environment
+
+2. Introduce multivariate statistics from a geometric perspective, emphasizing the geometry of vector spaces.
+
+3. Illustrate how to carry out common scientific computing tasks like simulation and building bioinformatics pipelines
+
+4. Provide the tools and knowledge to conduct reproducible computational and statistical research.
+
+
+

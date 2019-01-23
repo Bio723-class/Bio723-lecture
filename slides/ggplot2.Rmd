@@ -1,0 +1,61 @@
+---
+title: "ggplot2-intro"
+author: "Paul M. Magwene"
+date: "9/6/2018"
+output: 
+  beamer_presentation:
+    colortheme: "beaver"
+    fonttheme: "structurebold"
+fontsize: "9pt" 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Data frame example
+
+```{r,echo=FALSE,warning=FALSE}
+#library(tidyverse)
+library(ggplot2)
+```
+
+
+```{r, echo=TRUE}
+head(iris)
+```
+
+## Data + Geometric Representation + Aesthetic qualities
+
+```
+library(ggplot2) # import ggplot2 functions
+
+ggplot(data = <DATA>) + <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+
+```
+
+## Example 1
+
+```{r, echo=TRUE, fig.width=6, fig.height=4}
+ggplot(data = iris) + geom_histogram(mapping = aes(x = Sepal.Length))
+```
+
+## Example 2
+
+```{r, echo=TRUE, fig.width=6, fig.height=4}
+ggplot(data = iris) + geom_boxplot(mapping = aes(x = Species,
+                                                 y = Sepal.Length))
+```
+
+
+## Example 3
+
+```{r, echo=TRUE, fig.width=5, fig.height=3}
+ggplot(data = iris) + geom_boxplot(mapping = aes(x = Species,
+                                                 y = Sepal.Length)) +
+                      geom_jitter(mapping = aes(x = Species,
+                                                y = Sepal.Length,
+                                                color = Species),
+                                  width = 0.2)
+                                  
+```

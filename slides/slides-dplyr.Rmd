@@ -1,0 +1,219 @@
+---
+title: "Introduction to dplyr"
+author: "Paul M. Magwene"
+output: beamer_presentation
+fontsize: "9pt"    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE, comment = "", collapse=TRUE)
+options(width=60)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+## What is `dplyr`?
+
+`dplyr` is a package that provides a "grammar for data manipulation"
+
+\bigskip
+
+Key "verbs" in the `dplyr` package:
+
+  * `select()`
+  * `filter()`
+  * `mutate()`
+  * `arrange()`
+  * `summarize()`
+  * `group_by()`
+  
+\bigskip
+
+All these functions return new data frames instead of modifying existing data frames
+
+
+
+
+## `select()` subsets columns
+
+```{r, echo=TRUE}
+names(iris)
+```
+
+\medskip
+
+```{r, echo = TRUE}
+# select two columns
+df <- select(iris, Sepal.Length, Petal.Length)
+head(df, 3)
+```
+
+\medskip
+
+```{r, echo = TRUE}
+# select everything BUT the species column
+df <- select(iris, -Species)
+head(df, 3)
+```
+
+## `select()` has some specialized functions for powerful filtering
+
+```{r, echo = TRUE}
+df <- select(iris, starts_with("Petal")) 
+head(df, 3)
+```
+
+\medskip
+
+```{r, echo = TRUE}
+df <- select(iris, ends_with("Length")) 
+head(df, 3)
+```
+
+
+
+## `filter()` selects rows that match criteria
+
+```{r, echo = TRUE}
+# get only the I. setosa specimens
+df <- filter(iris, Species == "setosa") 
+head(df, 3)
+```
+
+\medskip
+
+```{r, echo=TRUE}
+# filter on mulitple criteria 
+df <- filter(iris, Species == "setosa", Sepal.Length < 5)
+head(df, 3)
+```
+
+
+## `mutate()` adds or transforms columns
+
+```{r, echo=TRUE}
+df <- mutate(iris, Species = str_to_upper(Species))
+head(df, 3)
+```
+
+## `arrange()` sorts rows according to values of one or more columns
+
+```{r, echo=TRUE}
+# sort by Sepal.Length
+df <- arrange(iris, Sepal.Length)
+head(df, 3)
+```
+
+\medskip
+
+```{r, echo=TRUE}
+# sort by Sepal.Length then by Petal.Length
+df <- arrange(iris, Sepal.Length, Petal.Length)
+head(df, 3)
+```
+
+## `summarize()` transforms and collapses
+
+`summarize()` applies functions to one or more variables (columns) in the data frame, reducing a vector of values to a single value and returning the results in a data frame
+
+\bigskip
+
+```{r, echo=TRUE}
+mean.Lengths <- 
+  summarize(iris, 
+            avg.Sepal.Length = mean(Sepal.Length), 
+            avg.Petal.Length = mean(Petal.Length))
+
+mean.Lengths
+```
+
+## `group_by()` is used for conditioning (faceting) and transforming
+
+```{r, echo=TRUE}
+# apply grouping
+grouped.df <- group_by(iris, Species)
+
+# summarize grouped data frame
+mean.by.group <- 
+  summarize(grouped.df,
+            avg.Sepal.Length = mean(Sepal.Length), 
+            avg.Petal.Length = mean(Petal.Length))          
+          
+mean.by.group
+```
+
+
+## The pipe operator, `%>%`
+
+`dplyr` also provides a new operator called a pipe
+
+  - The pipe operator is `%>%`
+
+Using pipes:
+
+  - `x %>% f()` is equivalent to `f(x)`
+  - `x %>% f(y)` is equivalent to `f(x,y)`.
+
+Examples:
+
+  - Single argument function:
+    ```{r, echo=TRUE}
+pi %>% cos()
+```
+  
+  - For single argument functions, after the pipe you can drop the parentheses:
+    ```{r, echo=TRUE}
+pi %>% cos  # same as above
+```
+
+  - Multi-argument functions
+    ```{r, echo=TRUE}
+100 %>% log(base=10) # 100 is treated as the first argument
+```
+
+
+## Building pipelines with the pipe operator
+
+The pipe operator allows us to build analysis "pipelines".
+
+\bigskip
+
+A pipeline series of function calls that filter and/or transform our data
+
+\medskip
+
+```{r, echo=TRUE}
+letters %>%         # start with letters vector
+  str_to_upper %>%  # convert to upper case
+  tail(10) %>%      # get last 10 elements
+  str_flatten("-")  # join into single string, separated by '-'
+```
+
+\bigskip
+
+The pipe operator helps to make our intent clearer, as compared to nested function calls:
+
+\medskip
+
+```{r, echo=TRUE}
+str_flatten(tail(str_to_upper(letters), 10), "-")
+```
+
+## The `dplyr` verbs functions are designed to work well with piping!
+
+
+```{r, echo=TRUE}
+filtered.Sepal.means <-
+  iris %>%
+  filter(Species != "virginica") %>%
+  group_by(Species) %>%
+  summarize(avg.Sepal.Length = mean(Sepal.Length),
+            avg.Sepal.Width = mean(Sepal.Width))   
+
+
+filtered.Sepal.means
+```
+
