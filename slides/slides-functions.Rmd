@@ -1,0 +1,34 @@
+---
+title: "Functions and control flow statements"
+author: "Paul M. Magwene"
+output: beamer_presentation
+fontsize: "9pt"    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, comment = "", collapse=TRUE)
+options(width=60)
+```
+
+```{r}
+library(tidyverse)
+```
+
+## Defining a function
+
+```{r, echo=TRUE}
+func.name <- function(arg1) {
+  # one or more expressions operating on fxn arguments
+  # last expression is object returned
+  # or use explicity `return()` 
+} 
+```
+
+Example
+
+```{r}
+my.mean <- function(x) {
+  sum(x)/length(x)
+}
+```
+
