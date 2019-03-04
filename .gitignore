@@ -34,3 +34,31 @@ vignettes/*.pdf
 
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
+/slides/intro-matrices/slidespreamble.log
+/slides/intro-matrices/slidespreamble.fls
+/slides/intro-matrices/slidespreamble.fdb_latexmk
+/slides/intro-matrices/slidespreamble.aux
+/slides/intro-matrices/slides-intro-matrices.xdv
+/slides/intro-matrices/slides-intro-matrices.vrb
+/slides/intro-matrices/slides-intro-matrices.toc
+/slides/intro-matrices/slides-intro-matrices.synctex.gz
+/slides/intro-matrices/slides-intro-matrices.snm
+/slides/intro-matrices/slides-intro-matrices.pre
+/slides/intro-matrices/slides-intro-matrices.out
+/slides/intro-matrices/slides-intro-matrices.nav
+/slides/intro-matrices/slides-intro-matrices.log
+/slides/intro-matrices/slides-intro-matrices.fls
+/slides/intro-matrices/slides-intro-matrices.fdb_latexmk
+/slides/intro-matrices/slides-intro-matrices.aux
+/slides/intro-matrices/slides-intro-matrices.atfi
+/slides/principal-components-analysis/slides-pca.xdv
+/slides/principal-components-analysis/slides-pca.vrb
+/slides/principal-components-analysis/slides-pca.toc
+/slides/principal-components-analysis/slides-pca.synctex.gz
+/slides/principal-components-analysis/slides-pca.snm
+/slides/principal-components-analysis/slides-pca.pre
+/slides/principal-components-analysis/slides-pca.out
+/slides/principal-components-analysis/slides-pca.nav
+/slides/principal-components-analysis/slides-pca.fls
+/slides/principal-components-analysis/slides-pca.fdb_latexmk
+/slides/principal-components-analysis/slides-pca.aux

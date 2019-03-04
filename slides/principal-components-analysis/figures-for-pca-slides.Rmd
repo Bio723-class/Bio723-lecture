@@ -1,0 +1,117 @@
+---
+title: "Untitled"
+author: "Paul M. Magwene"
+date: "3/6/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(broom)
+library(GGally)
+library(cowplot)
+```
+
+
+```{r}
+# this seeds our random number generator
+# by setting a seed, we can make random number generation reproducible
+set.seed(20160921)  
+
+npts <- 50
+X <- seq(1, 5, length.out = npts) + rnorm(npts)
+a <- 1.0
+b <- 1.5
+Y <- b*X + a + rnorm(npts, sd = 2)  # Y = 1.5X + 1.0 + noise
+
+df.xy <- data.frame(X = X, Y = Y)
+ctr.xy <- 
+  df.xy %>%
+  mutate(X = X - mean(X), Y = Y - mean(Y))
+```
+
+
+```{r}
+fit.xy <- lm(Y ~ X, ctr.xy)
+
+df.xy.augmented <- augment(fit.xy, ctr.xy)
+
+regr.plot <-
+  ggplot(df.xy.augmented, aes(X, Y)) + 
+  geom_point() + 
+  #geom_smooth(method="lm", color="red",se=FALSE) +
+  geom_abline(slope = fit.xy$coefficients["X"], color='red', size=1) +
+  geom_segment(aes(xend = X, yend = .fitted), linetype="dashed")+
+  xlim(-7,7) +
+  ylim(-7,7) +
+  coord_fixed() + 
+  labs(title = "Least Squares Regression")
+
+regr.plot
+```
+
+
+```{r}
+xy.pca <- prcomp(ctr.xy, retx=TRUE, scale. = FALSE, center=FALSE)
+pc1.slope <- xy.pca$rotation[2,1]/xy.pca$rotation[1,1]
+pc2.slope <- xy.pca$rotation[2,2]/xy.pca$rotation[1,2]
+
+pc1.scores <- xy.pca$x[,"PC1"]
+
+pc1.vector <- cbind(pc1.scores, rep(0, length(pc1.scores)))
+projection.onto.PC1 <- as.data.frame(pc1.vector %*% xy.pca$rotation)
+names(projection.onto.PC1) <- c("X", "Y")
+
+ctr.xy.aug <- ctr.xy %>%
+  mutate(PC1.X = projection.onto.PC1$X, 
+         PC1.Y = -projection.onto.PC1$Y)
+```
+
+
+```{r}
+pc.plot <-
+  ggplot(ctr.xy.aug, aes(x = X, y = Y)) + 
+  geom_point(alpha = 0.75) + 
+  geom_abline(slope = pc1.slope, color='forestgreen', size=1) +
+  geom_abline(slope = fit.xy$coefficients["X"], color='red', size=1, alpha=0.15, linetype='solid') +
+  geom_segment(aes(xend = PC1.X, yend = PC1.Y), linetype="dashed") +
+  xlim(-7,7) +
+  ylim(-7,7) +
+  coord_fixed()+ 
+  labs(title = "Major Axis Regression")
+
+pc.plot
+```
+
+
+```{r}
+comb.plot <- plot_grid(regr.plot, pc.plot)
+save_plot("fig-lsqr-vs-major-axis.pdf", comb.plot,
+          base_height = 4, base_width = 9 )
+```
+
+
+```{r}
+turtles <- read_tsv("https://github.com/Bio723-class/example-datasets/raw/master/turtles.txt")
+
+ggpairs(turtles, columns=c("length","width","height"))
+```
+
+
+```{r}
+turtles.pca <- prcomp(~ length + width + height, data = turtles, retx = TRUE)
+
+turtle.scores <- as.data.frame(turtles.pca$x)
+
+turtles.pca.plot <- 
+  ggplot(turtle.scores, aes(x = PC1, y = PC2)) +
+  geom_point() + 
+  coord_fixed(ylim=c(-10,10))
+
+turtles.pca.plot
+
+```
