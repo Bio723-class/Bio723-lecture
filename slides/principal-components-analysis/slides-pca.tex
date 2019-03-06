@@ -17,6 +17,7 @@
 \usepackage{blkarray}
 
 
+
 %===========================================================
 % Title Info
 \title{Scientific Computing for Biologists}
@@ -263,10 +264,10 @@ The principal components are linear combinations of the original variables
 \smallskip
 
 \[ \begin{array}{ccc}
-\vec{u}_1 & = & a_{11}\vec{x}_1 + a_{21}\vec{x}_2 + \cdots + a_{p1}\vec{x}_p \\
-\vec{u}_2 & = & a_{12}\vec{x}_1 + a_{22}\vec{x}_2 + \cdots + a_{p2}\vec{x}_p \\
+\vec{u}_1 & = & v_{11}\vec{x}_1 + v_{21}\vec{x}_2 + \cdots + v_{p1}\vec{x}_p \\
+\vec{u}_2 & = & v_{12}\vec{x}_1 + v_{22}\vec{x}_2 + \cdots + v_{p2}\vec{x}_p \\
 \vdots & & \vdots \\
-\vec{u}_p & = & a_{1p}\vec{x}_1 + a_{2p}\vec{x}_2 + \cdots + a_{pp}\vec{x}_p \\
+\vec{u}_p & = & v_{1p}\vec{x}_1 + v_{2p}\vec{x}_2 + \cdots + v_{pp}\vec{x}_p \\
 \end{array}
 \]
 
@@ -292,13 +293,13 @@ x_{n1} & x_{p2} & \cdots & x_{np}\\
 \end{bmatrix} & =  \begin{bmatrix}
 \vec{x}_{1} & \vec{x}_{2} & \cdots & \vec{x}_{p}
 \end{bmatrix} &  \\
-\underset{(p \times p)}{\Mtx{A}}  &= \begin{bmatrix}
-a_{11} & a_{12} & \cdots & a_{1p}\\
-a_{21} & a_{22} & \cdots & a_{2p}\\
+\underset{(p \times p)}{\Mtx{V}}  &= \begin{bmatrix}
+v_{11} & v_{12} & \cdots & v_{1p}\\
+v_{21} & v_{22} & \cdots & v_{2p}\\
 \cdots & \cdots & \cdots & \cdots\\
-a_{p1} & a_{p2} & \cdots & a_{pp}\\
+v_{p1} & v_{p2} & \cdots & v_{pp}\\
 \end{bmatrix} & = \begin{bmatrix}
-\vec{a}_{1} & \vec{a}_{2} & \cdots & \vec{a}_{p}
+\vec{v}_{1} & \vec{v}_{2} & \cdots & \vec{v}_{p}
 \end{bmatrix} & \\
 \underset{(n \times p)}{\Mtx{U}}  &= \begin{bmatrix}
 u_{11} & u_{12} & \cdots & u_{1p}\\
@@ -307,7 +308,7 @@ u_{21} & u_{22} & \cdots & u_{2p}\\
 u_{n1} & u_{p2} & \cdots & u_{np}\\
 \end{bmatrix} &= \begin{bmatrix}
 \vec{u}_{1} & \vec{u}_{2} & \cdots & \vec{u}_{p}
-\end{bmatrix} &= \Mtx{X}\Mtx{A}
+\end{bmatrix} &= \Mtx{X}\Mtx{V}
 \end{align*}
 
 
@@ -322,13 +323,13 @@ u_{n1} & u_{p2} & \cdots & u_{np}\\
 \begin{itemize}
   \item The PCs are orthogonal:
 \[
-\vec{a}_j \cdot \vec{a}_k = 0 \mbox{ for all } j \neq k.
+\vec{u}_j \cdot \vec{u}_k = 0 \mbox{ for all } j \neq k.
 \]
 
 
 	\item The sum of the squared coefficients for each PC is fixed to unity:
 \[
-\vec{a}_k \cdot \vec{a}_k = 1
+\vec{v}_k \cdot \vec{v}_k = 1
 \]
 
 	\item The sum of the squared lengths for the original variables and the PCs is the same:
@@ -369,7 +370,7 @@ If the values of the $i$-th individual in the original variables are:
 then the score of that individual on the $k$-th principal component axis is given by:
 
 \[
-\Mtx{U}_{ik} = \Mtx{r}_i \cdot \Mtx{a}_k = a_{1k}x_{i1} + a_{2k}x_{i2} + \cdots + a_{pk}x_{ip}
+\Mtx{U}_{ik} = \Mtx{r}_i \cdot \Mtx{v}_k = v_{1k}x_{i1} + v_{2k}x_{i2} + \cdots + v_{pk}x_{ip}
 \]
 
 \end{frame}
@@ -383,13 +384,13 @@ then the score of that individual on the $k$-th principal component axis is give
 The \textbf{loading vector} of the $k$-th PC is:
 
 \[
-|\Mtx{u}_k|\Mtx{a}_k
+|\Mtx{u}_k|\Mtx{v}_k
 \]
 
 The \textbf{loading} of the $j$-th original variable on the $k$-th PC is:
 
 \[
-|\Mtx{u}_k|a_{jk}
+|\Mtx{u}_k|v_{jk}
 \]
 
 \begin{block}{Interpretation}
@@ -840,17 +841,53 @@ l_1 &  & 0 \\
 \end{frame}
 %===========================================================
 
+
+
 %===========================================================
 \begin{frame}[fragile]
   \frametitle{Calculation of PCs}
 
 Principal components can be calculated by eigenanalysis of the covariance or correlation matrix.
-\medskip
+%
+\begin{align*}
+\underset{(n \times p)}{\Mtx{X}} & =  
+\begin{bmatrix}
+\vec{X}_{1} & \vec{X}_{2} & \cdots & \vec{X}_{p}
+\end{bmatrix} &   
+\text{Data matrix w/variables in columns}  \\
+%
+\underset{(p \times p)}{\Mtx{S}}  &= 
+\cov(X) & \text{Covariance or correlation matrix of X}  \\
+%
+\underset{(p \times p)}{\Mtx{V}}  &= 
+\begin{bmatrix}
+\vec{v}_{1} & \vec{v}_{2} & \cdots & \vec{v}_{p}
+\end{bmatrix} & 
+\text{Matrix of eigenvectors of S} \\
+%
+\underset{(1 \times p)}{\Mtx{l}}  &= 
+\begin{bmatrix}
+l_{1} & l_{2} & \cdots & l_{p}
+\end{bmatrix} & 
+\text{Vector of eigenvalues of S}
+\end{align*}
 
+Given the above:
 
-\begin{center}
-\includegraphics[height=2.7in]{pca-eigen.pdf}
-\end{center}  
+\begin{itemize}
+  \item PC scores matrix: $\underset{(p \times p)}{\Mtx{U}} = \Mtx{X}\Mtx{V}$
+
+  \item PC loadings matrix:  $\Mtx{V}\Mtx{L}^{1/2}$ where $\Mtx{L}^{1/2} = %
+\begin{bsmallmatrix}
+\sqrt{l_1} &  & \text{\Large 0} \\
+ & \ddots & \\
+\text{\Large 0} &  & \sqrt{l_p} \\
+\end{bsmallmatrix}
+$
+
+  \item Variance summarized by k-th PC: $\sqrt{l_k}$
+\end{itemize}
+
 
 
 \end{frame}

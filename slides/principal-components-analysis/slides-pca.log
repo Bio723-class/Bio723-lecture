@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.7)  3 MAR 2019 20:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.7)  6 MAR 2019 11:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1464,34 +1464,34 @@ Package: blkarray 2015/02/27 v0.07 Block array (dpc)
 (./slides-pca.aux)
 \openout1 = `slides-pca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 31.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for LMR/hlcm/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for T1+hls on input line 30.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for LMR/hlcm/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Try loading font information for T1+hls on input line 31.
  (/Users/pmagwene/Library/texmf/tex/latex/lucida/t1hls.fd
 File: t1hls.fd 2005/09/15 font definitions for T1/hls (WaS/PCTeX/TUG)
 )
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 30.
+(Font)              scaled to size 9.30756pt on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1559,7 +1559,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box76
-Package hyperref Info: Link coloring ON on input line 30.
+Package hyperref Info: Link coloring ON on input line 31.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1569,9 +1569,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count306
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 31.
+LaTeX Info: Redefining \pageref on input line 31.
+LaTeX Info: Redefining \nameref on input line 31.
 
 (./slides-pca.out) (./slides-pca.out)
 \@outlinefile=\write10
@@ -1602,40 +1602,40 @@ Dictionary: translator-numbers-dictionary, Language: English
 tionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \longleftarrow on input line 30.
-LaTeX Info: Redefining \longrightarrow on input line 30.
-LaTeX Info: Redefining \Longleftarrow on input line 30.
-LaTeX Info: Redefining \Longrightarrow on input line 30.
+LaTeX Info: Redefining \longleftarrow on input line 31.
+LaTeX Info: Redefining \longrightarrow on input line 31.
+LaTeX Info: Redefining \Longleftarrow on input line 31.
+LaTeX Info: Redefining \Longrightarrow on input line 31.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (./slides-pca.nav)
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 5.10004pt on input line 30.
+(Font)              scaled to size 5.10004pt on input line 31.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 5.10004pt on input line 30.
+(Font)              scaled to size 5.10004pt on input line 31.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 12.24008pt on input line 34.
+(Font)              scaled to size 12.24008pt on input line 35.
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 6.80005pt on input line 34.
+(Font)              scaled to size 6.80005pt on input line 35.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 3.40002pt on input line 34.
+(Font)              scaled to size 3.40002pt on input line 35.
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 3.40002pt on input line 34.
+(Font)              scaled to size 3.40002pt on input line 35.
  [1
 
 {/Users/pmagwene/Library/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.
 map}]
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 52.
+(Font)              scaled to size 8.50006pt on input line 53.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 52.
+(Font)              scaled to size 8.50006pt on input line 53.
  [2
 
 ]
 <fig-lsqr-vs-major-axis.pdf, id=26, 650.43pt x 289.08pt>
 File: fig-lsqr-vs-major-axis.pdf Graphic file (type pdf)
 <use fig-lsqr-vs-major-axis.pdf>
-Package pdftex.def Info: fig-lsqr-vs-major-axis.pdf  used on input line 64.
+Package pdftex.def Info: fig-lsqr-vs-major-axis.pdf  used on input line 65.
 (pdftex.def)             Requested size: 307.28987pt x 136.57777pt.
  [3
 
@@ -1726,9 +1726,9 @@ LaTeX Font Info:    Font shape `OML/hlcm/b/n' will be
 (Font)              scaled to size 5.10004pt on input line 14.
 )
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 79.
+(Font)              scaled to size 7.65005pt on input line 80.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 79.
+(Font)              scaled to size 7.65005pt on input line 80.
 \openout8 = `slides-pca-2.asy'.
 
 
@@ -1744,7 +1744,7 @@ Package pdftex.def Info: slides-pca-2_0.pdf  used on input line 10.
 <fig-bivariate-pca-wreg.pdf, id=56, 505.89pt x 505.89pt>
 File: fig-bivariate-pca-wreg.pdf Graphic file (type pdf)
 <use fig-bivariate-pca-wreg.pdf>
-Package pdftex.def Info: fig-bivariate-pca-wreg.pdf  used on input line 110.
+Package pdftex.def Info: fig-bivariate-pca-wreg.pdf  used on input line 111.
 (pdftex.def)             Requested size: 198.74751pt x 198.7425pt.
  [5
 
@@ -1752,7 +1752,7 @@ Package pdftex.def Info: fig-bivariate-pca-wreg.pdf  used on input line 110.
 <fig-bivariate-pca-scores.pdf, id=69, 505.89pt x 505.89pt>
 File: fig-bivariate-pca-scores.pdf Graphic file (type pdf)
 <use fig-bivariate-pca-scores.pdf>
-Package pdftex.def Info: fig-bivariate-pca-scores.pdf  used on input line 123.
+Package pdftex.def Info: fig-bivariate-pca-scores.pdf  used on input line 124.
 (pdftex.def)             Requested size: 198.74751pt x 198.7425pt.
  [6
 
@@ -1760,13 +1760,13 @@ Package pdftex.def Info: fig-bivariate-pca-scores.pdf  used on input line 123.
 <fig-bivariate-pca-vectors.pdf, id=82, 505.89pt x 505.89pt>
 File: fig-bivariate-pca-vectors.pdf Graphic file (type pdf)
 <use fig-bivariate-pca-vectors.pdf>
-Package pdftex.def Info: fig-bivariate-pca-vectors.pdf  used on input line 138.
+Package pdftex.def Info: fig-bivariate-pca-vectors.pdf  used on input line 139.
 
 (pdftex.def)             Requested size: 180.67676pt x 180.67499pt.
  [7
 
  <./fig-bivariate-pca-vectors.pdf>]
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 165--165
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 166--166
 [][]  
  []
 
@@ -1774,52 +1774,52 @@ Overfull \hbox (2.49939pt too wide) in paragraph at lines 165--165
 
 ]
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `T1/hlcn/b/n' in size <10.95> not available
-(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 187.
+(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 188.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `OML/hlcm/b/itx' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `OMS/hlcy/b/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `OML/hlcm/b/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 LaTeX Font Info:    Font shape `T1/hls/b/n' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 187--187
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 188--188
 [][]  
  []
 
 LaTeX Font Info:    Font shape `T1/hls/m/it' will be
-(Font)              scaled to size 9.30756pt on input line 187.
+(Font)              scaled to size 9.30756pt on input line 188.
 [9
 
 ]
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 216--216
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 217--217
 [][]  
  []
 
 [10
 
 ]
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 237--237
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 238--238
 [][]  
  []
 
 [11
 
 ]
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 250--250
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 251--251
 [][]  
  []
 
@@ -1832,14 +1832,14 @@ Overfull \hbox (2.49939pt too wide) in paragraph at lines 250--250
 ] [15
 
 ]
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 375--375
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 376--376
 [][]  
  []
 
 [16
 
 ]
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 405--405
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 406--406
 [][]  
  []
 
@@ -1862,111 +1862,111 @@ Overfull \hbox (18.16612pt too wide) in paragraph at lines 4--6
 ) [18
 
  <./turtles.pdf>]
-LaTeX Font Info:    Try loading font information for U+mvs on input line 477.
+LaTeX Font Info:    Try loading font information for U+mvs on input line 478.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/marvosym/umvs.fd)
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/b/n' in size <9> not available
-(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 477.
+(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/b/n' in size <5> not available
-(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 477.
+(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/itx' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/itx' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/b/n' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/b/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/n' will be
-(Font)              scaled to size 7.65005pt on input line 477.
+(Font)              scaled to size 7.65005pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 4.25003pt on input line 477.
+(Font)              scaled to size 4.25003pt on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/b/n' in size <10> not available
-(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 477.
+(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/b/n' in size <7> not available
-(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 477.
+(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 478.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/itx' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/itx' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/b/n' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `OMS/hlcy/b/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/n' will be
-(Font)              scaled to size 8.50006pt on input line 477.
+(Font)              scaled to size 8.50006pt on input line 478.
 LaTeX Font Info:    Font shape `OML/hlcm/b/n' will be
-(Font)              scaled to size 5.95004pt on input line 477.
+(Font)              scaled to size 5.95004pt on input line 478.
  [19
 
 ]
 <turtle-pca.pdf, id=176, 681.19pt x 342.96028pt>
 File: turtle-pca.pdf Graphic file (type pdf)
 <use turtle-pca.pdf>
-Package pdftex.def Info: turtle-pca.pdf  used on input line 486.
+Package pdftex.def Info: turtle-pca.pdf  used on input line 487.
 (pdftex.def)             Requested size: 287.08528pt x 144.54pt.
  [20
 
  <./turtle-pca.pdf>] [21
 
 ]
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 569--569
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 570--570
 [][]  
  []
 
@@ -1974,20 +1974,20 @@ Overfull \hbox (2.49939pt too wide) in paragraph at lines 569--569
 
 ]
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 21.14815pt on input line 586.
+(Font)              scaled to size 21.14815pt on input line 587.
  [23
 
 ]
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 9.30756pt on input line 619.
+(Font)              scaled to size 9.30756pt on input line 620.
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 6.80005pt on input line 619.
+(Font)              scaled to size 6.80005pt on input line 620.
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 5.10004pt on input line 619.
+(Font)              scaled to size 5.10004pt on input line 620.
 LaTeX Font Info:    Font shape `T1/hls/b/it' will be
-(Font)              scaled to size 9.30756pt on input line 619.
+(Font)              scaled to size 9.30756pt on input line 620.
 
-Overfull \hbox (2.49939pt too wide) in paragraph at lines 619--619
+Overfull \hbox (2.49939pt too wide) in paragraph at lines 620--620
 [][]  
  []
 
@@ -1998,40 +1998,40 @@ Overfull \hbox (2.49939pt too wide) in paragraph at lines 619--619
 
  (./slides-pca.vrb)
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 8.50006pt on input line 720.
+(Font)              scaled to size 8.50006pt on input line 721.
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 5.95004pt on input line 720.
+(Font)              scaled to size 5.95004pt on input line 721.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `T1/hlcn/b/n' in size <14.4> not available
-(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 720.
+(Font)              Font shape `T1/hlcn/m/n' tried instead on input line 721.
 LaTeX Font Info:    Font shape `T1/hlcn/m/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `OML/hlcm/b/itx' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `OMS/hlcy/b/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
 LaTeX Font Info:    Font shape `OML/hlcm/b/n' will be
-(Font)              scaled to size 12.24008pt on input line 720.
+(Font)              scaled to size 12.24008pt on input line 721.
  [25
 
 ]
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 7.65005pt on input line 765.
+(Font)              scaled to size 7.65005pt on input line 766.
 LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
-(Font)              scaled to size 4.25003pt on input line 765.
+(Font)              scaled to size 4.25003pt on input line 766.
  [26
 
 ] [27
@@ -2040,10 +2040,10 @@ LaTeX Font Info:    Font shape `T1/hlcn/m/it' will be
 <eigen-example.pdf, id=236, 716.66861pt x 328.76877pt>
 File: eigen-example.pdf Graphic file (type pdf)
 <use eigen-example.pdf>
-Package pdftex.def Info: eigen-example.pdf  used on input line 804.
+Package pdftex.def Info: eigen-example.pdf  used on input line 805.
 (pdftex.def)             Requested size: 315.07271pt x 144.54pt.
 
-Overfull \hbox (7.78284pt too wide) in paragraph at lines 804--804
+Overfull \hbox (7.78284pt too wide) in paragraph at lines 805--805
  [] 
  []
 
@@ -2054,15 +2054,9 @@ Overfull \hbox (7.78284pt too wide) in paragraph at lines 804--804
 ]
 \openout4 = `slides-pca.vrb'.
 
- (./slides-pca.vrb
-<pca-eigen.pdf, id=258, 668.18114pt x 457.67453pt>
-File: pca-eigen.pdf Graphic file (type pdf)
-<use pca-eigen.pdf>
-Package pdftex.def Info: pca-eigen.pdf  used on input line 8.
-(pdftex.def)             Requested size: 284.87553pt x 195.12877pt.
-) [30
+ (./slides-pca.vrb) [30
 
- <./pca-eigen.pdf>]
+]
 \tf@nav=\write11
 \openout11 = `slides-pca.nav'.
 
@@ -2072,21 +2066,20 @@ Package pdftex.def Info: pca-eigen.pdf  used on input line 8.
 \tf@snm=\write13
 \openout13 = `slides-pca.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 860.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 860.
-
-(./slides-pca.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 860.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 860.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 897.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 897.
+ (./slides-pca.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 897.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 897.
 Package rerunfilecheck Info: File `slides-pca.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26132 strings out of 492616
- 509420 string characters out of 6128983
+ 26133 strings out of 492616
+ 509489 string characters out of 6128983
  584978 words of memory out of 5000000
- 29369 multiletter control sequences out of 15000+600000
- 64080 words of font info for 156 fonts, out of 8000000 for 9000
+ 29370 multiletter control sequences out of 15000+600000
+ 64476 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  65i,19n,78p,777b,757s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/pmagw
@@ -2100,10 +2093,10 @@ s/type1/bh/lucida/lbms.pfb></Users/pmagwene/Library/texmf/fonts/type1/bh/lucida
 pmagwene/Library/texmf/fonts/type1/bh/lucida/lsi.pfb></Users/pmagwene/Library/t
 exmf/fonts/type1/bh/lucida/lsr.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
 pe1/public/marvosym/marvosym.pfb>
-Output written on slides-pca.pdf (30 pages, 725089 bytes).
+Output written on slides-pca.pdf (30 pages, 661261 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
+ 319 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
  61 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
