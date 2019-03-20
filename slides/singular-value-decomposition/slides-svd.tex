@@ -301,8 +301,8 @@ By SVD we can write $\Mtx{X} = \Mtx{U}\Mtx{S}\Mtx{V}^T$, therefore:
   \frametitle{Applications of SVD}
 
 \begin{itemize}
-\item Pseudoinverse of an arbitrary matrix
 \item Matrix approximation
+\item Efficient PCA
 \item Biplots
 \item ... and many more ...
 \end{itemize}
@@ -310,35 +310,6 @@ By SVD we can write $\Mtx{X} = \Mtx{U}\Mtx{S}\Mtx{V}^T$, therefore:
 \end{frame}
 %===========================================================
 
-
-%===========================================================
-\begin{frame}
-  \frametitle{Pseudoinverse via SVD}
-
-The pseudoinverse of a matrix is a generalization of the concept of a matrix inverse. Only square matrices have a matrix inverse; the pseudoinverse applies to an arbitrary $n \times p$ matrix.
-
-\smallskip
-Given an $n \times p$ matrix $\Mtx{A}$ find matrix $\PsInv{A}$ such that:
-
-\begin{eqnarray*}
-\Mtx{A} \PsInv{A} \Mtx{A} & = & \Mtx{A} \\
-\PsInv{A} \Mtx{A} \PsInv{A} & = & \PsInv{A}\\
-(\Mtx{A} \PsInv{A})^T & = & \Mtx{A} \PsInv{A}\\
-(\PsInv{A} \Mtx{A})^T & = & \PsInv{A} \Mtx{A}
-\end{eqnarray*}
-
-\smallskip
-Moore-Penrose Inverse via SVD:
-
-\begin{eqnarray*}
-\text{if}\ \Mtx{A} &=& \Mtx{U}\Mtx{S}\Mtx{V}^T \\
-\PsInv{A} &=& \Mtx{V} \PsInv{S}  \Mtx{U}^T
-\end{eqnarray*}
-
-where \PsInv{S} has the reciprocal of non-zero elements of S.
-
-\end{frame}
-%===========================================================
 
 %===========================================================
 \begin{frame}
