@@ -1,0 +1,58 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+theta <- seq(-pi, pi, by=pi/16)
+circle <- data_frame(x = cos(theta), y = sin(theta))
+
+ggplot(circle) + 
+  geom_point(aes(x,y)) + 
+  coord_fixed()
+
+```
+
+
+```{r}
+A <- matrix(c(1, 0.8,
+              0.8, 1), byrow = TRUE, nrow=2)
+
+Ax <- A %*% t(circle)
+circle.transformed <- data_frame(x = Ax[1,], y = Ax[2,])
+
+ggplot(circle.transformed) + 
+  geom_point(aes(x,y)) + 
+  coord_fixed()
+
+```
+
+```{r}
+eigen.A <- eigen(A)
+evec1 <- eigen.A$vectors[,1]
+evec2 <- eigen.A$vectors[,2]
+
+eval1 <- eigen.A$values[1]
+eval2 <- eigen.A$values[2]
+
+ggplot(circle.transformed) + 
+  geom_point(aes(x,y)) + 
+  geom_segment(aes(x = 0, y = 0, xend = evec1[1] * eval1, yend = evec1[2] * eval1),
+               color = 'red', arrow=arrow(type='closed', angle=15, length=unit(0.1,"inches"))) +
+  geom_segment(aes(x = 0, y = 0, xend = evec2[1] * eval2, yend = evec2[2] * eval2),
+               color = 'red', arrow=arrow(type='closed', angle=15, length=unit(0.1,"inches"))) +  
+  coord_fixed()
+```
+
+
+
+
+

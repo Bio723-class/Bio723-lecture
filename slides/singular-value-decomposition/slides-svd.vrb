@@ -1,0 +1,18 @@
+\frametitle{Using SVD to do PCA}
+
+Let \Mtx{X} be a mean-centered $n \times p$ data matrix. The covariance matrix is given by:
+\begin{align*}
+  \Mtx{C} = \tfrac{1}{n-1} \; \Mtx{X}^T \Mtx{X}
+\end{align*}
+
+By SVD we can write $\Mtx{X} = \Mtx{U}\Mtx{S}\Mtx{V}^T$, therefore:
+\begin{align*}
+  \Mtx{C} &= \tfrac{1}{n-1} \; \Mtx{V}\Mtx{S}\Mtx{U}^T \Mtx{U}\Mtx{S}\Mtx{V}^T \\
+          &= \tfrac{1}{n-1} \; \Mtx{V} \Mtx{S}\Mtx{S} \Mtx{V}^T
+\end{align*}
+
+\begin{itemize}
+  \item The PC vectors are given by the columns of \Mtx{V} (rows of $\Mtx{V}^T$)
+  \item The PC scores are given by $\Mtx{U}\Mtx{D}$, where $\Mtx{D} = \Mtx{S}\Mtx{S}$
+\end{itemize}
+
