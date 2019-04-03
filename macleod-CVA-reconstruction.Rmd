@@ -1,0 +1,483 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+## Libraries
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggthemes)
+library(cowplot)
+library(broom)
+library(magrittr)
+library(ggsci)
+library(rlang)
+```
+
+# Preliminaries
+
+First we'll change a few of the defaults so we have consistent scatter plots with easily distinguishable symbol shapes and colors.
+
+```{r, echo=TRUE}
+update_geom_defaults("point", list(size=3, stroke=1))
+scale_colour_discrete <- function(...) scale_color_d3(palette="category10")
+scale_shape_discrete <- function(...) scale_shape_few()
+```
+
+# Plotting function
+
+```{r}
+draw_grouped_points <- function(data, x, y, group, ...) {
+  x <- enquo(x)
+  y <- enquo(y)
+  group <- enquo(group)
+  geom_point(data = data, 
+             aes(x = !! x, 
+                 y = !! y,
+                 color = !! group,
+                 shape = !! group), ...)
+}
+
+draw_axes <- function(data, x, y, ...) {
+  x <- enquo(x)
+  y <- enquo(y)  
+  geom_segment(data = data,
+               aes(x =   - !! x, 
+                   xend =  !! x,
+                   y =   - !! y,
+                   yend =  !! y), ...)  
+}
+
+label_axes <- function(data, x, y, label, ...) {
+  x <- enquo(x)
+  y <- enquo(y)  
+  label <- enquo(label)  
+  geom_text(data = data,
+            aes(x = !! x,
+                y = !! y,
+                label = !! label),
+            ...)
+  
+}
+
+points_and_axes <- function(data, axes.data, x, y, group, label, ...) {
+  x <- enquo(x)
+  y <- enquo(y)  
+  group <- enquo(group)
+  label <- enquo(label)
+  ggplot() + 
+    draw_grouped_points(data, !! x, !! y, !! group, ...) + 
+    draw_axes(axes.data, !! x, !! y) +
+    label_axes(axes.data, !! x, !! y, !! label)
+}
+
+```
+
+
+# MacLeod's analysis
+
+For his example, Macload analyzed the first 25 specimens of each Iris species. His figures say Petal Length and Petal Width, but this is clearly a mistake and the figures are instead based on Sepal Length and Width.
+
+Let's create a data frame and corresponding numerical matrix with the subset of the data Macleod analyzed.
+
+```{r}
+iris.sepals <- 
+  iris %>%
+  dplyr::select(-Petal.Length, -Petal.Width) %>%
+  group_by(Species) %>%
+  group_map(~head(., 25)) %>% 
+  ungroup %>%
+  mutate_if(is.numeric, scale, center=TRUE, scale=FALSE)
+
+iris.sepals.mtx <- 
+  iris.sepals %>% 
+  dplyr::select(-Species) %>% # drop Species column 
+  as.matrix  # cast to matrix for calculations  
+```
+
+## Original data
+
+First a scatter plot of the data in the space of the original variables:
+
+```{r}
+fixed.jitter <- position_jitter(height=0.05, width=0.05, seed = 20190328)
+plot.theme <- theme(legend.position = "top")
+
+plot_orig <-
+  ggplot() +
+  draw_grouped_points(iris.sepals, Sepal.Length, Sepal.Width, 
+                      group = Species, position = fixed.jitter) +
+  labs(x = "Sepal Length\n(Mean centered)", 
+       y = "Sepal Width\n(Mean centered)") +
+  coord_fixed() +
+  plot.theme
+  
+plot_orig
+```
+
+
+
+## Preliminary calculations
+
+```{r}
+nobs <- nrow(iris.sepals)
+ngroups <- nlevels(iris.sepals$Species)
+
+# calculate deviations around grand mean
+tot.deviates <-
+  iris.sepals %>%
+  dplyr::select(-Species) %>%
+  mutate_all(~(. - mean(.))) %>%
+  as.matrix
+
+# Total SSQ and covariance matrix
+ssq.tot <- t(tot.deviates) %*% tot.deviates
+cov.tot <- ssq.tot/nobs  
+
+# calculate deviations around group means
+win.deviates <-
+  iris.sepals %>%
+  group_by(Species) %>%
+  mutate_at(vars(-group_cols()), ~(. - mean(.))) %>% 
+  ungroup %>%
+  dplyr::select(-Species) %>%
+  as.matrix
+
+# Within group SSQ and covariance
+ssq.win <- t(win.deviates) %*% win.deviates
+cov.win <- ssq.win/(nobs - ngroups)
+
+# Eigenvectors/values of within group covariance
+win.eigen <- eigen(cov.win)
+
+# Between group deviates
+btw.deviates <-
+  iris.sepals %>% 
+  group_by(Species) %>% 
+  summarize_all(mean) %>% 
+  dplyr::select(-Species) %>% 
+  mutate_at(vars(-group_cols()), ~(. - mean(.))) %>%
+  as.matrix
+
+# Between group SSQ and covariance
+ssq.btw <- ngroups * t(btw.deviates) %*% btw.deviates
+cov.btw <- ssq.btw/(ngroups-1)
+```
+
+
+
+Now let's draw those eigenvectors in the space of the original variables.
+
+```{r}
+win.PCs <-
+  win.eigen$vectors %*% (2 * diag(sqrt(win.eigen$values))) %>%
+  set_colnames(c("PC1", "PC2")) %>%
+  set_rownames(c("Sepal.Length", "Sepal.Width")) %>%
+  t() %>%
+  as_tibble(rownames = "PC")
+
+plot_win.PC.in.orig <-
+  points_and_axes(iris.sepals, win.PCs, 
+                  Sepal.Length, Sepal.Width, Species, PC, 
+                  position = fixed.jitter) +
+  labs(x = "Sepal Length\n(Mean centered)", 
+       y = "Sepal Width\n(Mean centered)") +
+  coord_fixed() +
+  plot.theme
+
+plot_win.PC.in.orig
+```
+
+And combine the first two plots above into a single figure:
+
+```{r, fig.width=7.5, fig.height=3.25,echo=FALSE,eval=FALSE}
+plot_grid(plot_orig, plot_win.PC.in.orig, nrow=1,
+          rel_heights = c(1,1), align='v', labels=c("AUTO"))
+ggsave("CVA-steps1to2.pdf")
+```
+
+# Within group PCs
+
+Now let's draw the observations projected into the space of the within group PCs. First calculate the PC scores:
+
+```{r}
+win.PC.scores.mtx <- 
+  iris.sepals.mtx %*% win.eigen$vectors %>%
+  set_colnames(str_c("PC", 1:ncol(iris.sepals.mtx))) 
+
+win.PC.scores <-
+  as.data.frame(win.PC.scores.mtx) %>%
+  mutate(Species = iris.sepals$Species)
+```
+
+And then plot the scores:
+
+```{r}
+plot_win.PC <-
+  ggplot() +
+  draw_grouped_points(win.PC.scores, PC1, PC2, Species, position = fixed.jitter) +
+  labs(x = "PC1\n(Within group)", y = "PC2\n(Within Group)") +
+  coord_fixed() + 
+  plot.theme
+
+plot_win.PC
+```
+
+
+We then scale the within-group PCs the reciprocal of the square root of their eigenvalues:
+
+```{r}
+win.scaling <- diag(1/sqrt(win.eigen$values))
+
+scaled.win.PC.scores.mtx <- 
+  win.PC.scores.mtx %*% win.scaling %>%
+  set_colnames(str_c("scaledPC", 1:ncol(iris.sepals.mtx)))
+
+scaled.win.PC.scores <-
+  as.data.frame(scaled.win.PC.scores.mtx) %>%
+  mutate(Species = iris.sepals$Species)
+```
+
+Now create a plot of the scaled within group PCs and scores:
+
+```{r}
+plot_scaled.win.PC <-
+  ggplot() + 
+  draw_grouped_points(scaled.win.PC.scores, scaledPC1, scaledPC2, Species,
+                      position = fixed.jitter) +
+  labs(x = "Scaled PC1", y = "Scaled PC2") +
+  xlim(-5,5) + ylim(-5,5) + 
+  coord_fixed() + 
+  plot.theme
+
+plot_scaled.win.PC
+```
+
+```{r, fig.width=7.5, fig.height=3.25,echo=FALSE,eval=FALSE}
+plot_grid(plot_win.PC, plot_scaled.win.PC, nrow=1, align='v', labels=c("AUTO"))
+ggsave("CVA-steps3to4.pdf")
+```
+
+# Group means and group PC
+
+Calculate the group means in the space of scaled PCs
+
+```{r}
+scaled.group.means <-
+  scaled.win.PC.scores %>%
+  group_by(Species) %>%
+  summarize(scaledPC1 = mean(scaledPC1), scaledPC2 = mean(scaledPC2))
+  
+```
+
+Calculate the group sum-of-squares and cross-products (SSQCP) matrix, and its corresponding eigenvectors and values.
+
+```{r}
+group.ssqcp <- cov(scaled.group.means %>% select(-Species)) * (ngroups - 1)
+group.eigen <- eigen(group.ssqcp)
+```
+
+Now plot the group means and their eigenvectors:
+
+```{r}
+group.PCs <-
+  group.eigen$vectors %*% (6 * diag(sqrt(win.eigen$values))) %>%
+  set_colnames(c("CV1", "CV2")) %>%
+  set_rownames(c("scaledPC1", "scaledPC2")) %>%
+  t() %>%
+  as_tibble(rownames = "CV")
+
+plot_group.mean.PCs <-
+  points_and_axes(scaled.group.means, group.PCs, scaledPC1, scaledPC2, Species, CV,
+                  position = fixed.jitter) + 
+  labs(x = "Scaled PC1", y = "Scaled PC2") +
+  xlim(-5,5) + ylim(-5,5) + 
+  coord_fixed() + 
+  plot.theme
+
+plot_group.mean.PCs
+```
+
+
+## CV scores
+
+Calculate CV scores:
+
+```{r}
+CV.scores.mtx <- 
+  scaled.win.PC.scores.mtx %*% group.eigen$vectors %>%
+  set_colnames(str_c("CV", 1:(ngroups-1)))
+
+CV.scores <- 
+  as.data.frame(CV.scores.mtx) %>%
+  mutate(Species = iris.sepals$Species)
+```
+
+Plot CV scores:
+```{r}
+plot_CV <-
+  ggplot() +
+  draw_grouped_points(CV.scores, CV1, CV2, Species, position = fixed.jitter) + 
+  labs(x = "CV1", y = "CV2") + 
+  xlim(-5,5) + ylim(-3,3) + 
+  coord_fixed() + 
+  plot.theme
+
+plot_CV
+```
+
+
+```{r, fig.width=7.5, fig.height=3.25,echo=FALSE,eval=FALSE}
+plot_grid(plot_group.mean.PCs, plot_CV, nrow=1, align='v', labels=c("AUTO"))
+ggsave("CVA-steps5to6.pdf")
+```
+
+# Reversing the transformation
+
+What we've done above is walk through a series of transformations, that include a rigid rotation (to the within group PCs), a scaling, and a second rigid rotation.
+
+If we want to depict what the CV vectors look like in the space of the original variables we can take two vectors, pointing in the direction of the CV axes (e.g. the vector (0,1) representing CV1 and the vector (1,0) representing CV2) and apply the transformations in reverse.
+
+## CVs to scaled PC space
+
+```{r}
+# since eigenvectors are orthonormal, A^t = A-1 (transpose is inverse)
+
+CV.scores.in.scaled.mtx <- 
+  CV.scores.mtx %*% t(group.eigen$vectors) %>%
+  set_colnames(c("scaledPC1","scaledPC2"))
+
+CV.scores.in.scaled <-
+  CV.scores.in.scaled.mtx %>%
+  as.data.frame %>%
+  mutate(Species = iris.sepals$Species)
+  
+CV.axes <- matrix(c(1,0,0,1),nrow=2)
+CV.axes.in.scaled.mtx <- 
+  CV.axes %*% t(group.eigen$vectors) %>%  
+  set_colnames(c("CV1", "CV2"))
+
+CV.axes.in.scaled <-
+  CV.axes.in.scaled.mtx %>%
+  as.data.frame
+```
+  
+
+```{r}
+plot_CV.back1 <-
+  ggplot() + 
+  draw_axes(CV.axes.in.scaled, 4 * CV1, 4 * CV2, alpha = 0.5) +
+  label_axes(CV.axes.in.scaled, 4.5 * CV1, 4.5 * CV2, label = c("CV1","CV2")) +
+  draw_grouped_points(CV.scores.in.scaled, scaledPC1, scaledPC2, Species,
+                      position = fixed.jitter) +
+  labs(x = "Scaled PC1", y = "Scaled PC2") +
+  xlim(-5,5) + ylim(-5,5) + 
+  coord_fixed() + 
+  plot.theme
+
+plot_CV.back1
+```
+  
+
+## CVs to unscaled PC space
+
+```{r}
+CV.scores.unscaled.mtx <- 
+  CV.scores.in.scaled.mtx %*% diag(sqrt(win.eigen$values)) %>% 
+  set_colnames(c("PC1","PC2"))
+
+CV.scores.unscaled <- 
+  CV.scores.unscaled.mtx %>%
+  as.data.frame %>%
+  mutate(Species = iris.sepals$Species)
+
+CV.axes.unscaled.mtx <- 
+  CV.axes.in.scaled.mtx %*% diag(sqrt(win.eigen$values)) %>% 
+  set_colnames(c("CV1", "CV2"))
+
+CV.axes.unscaled <-
+  CV.axes.unscaled.mtx %>%
+  as.data.frame
+
+plot_CV.back2 <-
+  ggplot() +
+  draw_axes(CV.axes.unscaled, 4 * CV1, 4 * CV2, alpha=0.5) + 
+  label_axes(CV.axes.unscaled, 4.5 * CV1, 4.5 * CV2, label = c("CV1","CV2")) +    
+  draw_grouped_points(CV.scores.unscaled, PC1, PC2, Species) +
+  labs(x = "PC1", y = "PC2") +
+  coord_fixed() + 
+  theme(legend.position = "top")
+
+plot_CV.back2
+```
+  
+## Unscaled PC space to original space
+
+```{r}
+CV.scores.orig.mtx <- 
+  CV.scores.unscaled.mtx %*% t(win.eigen$vectors) %>% 
+  set_colnames(c("Sepal.Length", "Sepal.Width"))
+
+CV.scores.orig <- 
+  as.data.frame(CV.scores.orig.mtx) %>%
+  mutate(Species = iris.sepals$Species)
+
+CV.axes.orig.mtx <- 
+  CV.axes.unscaled.mtx %*% t(win.eigen$vectors) %>% 
+  set_colnames(c("CV1", "CV2"))
+
+CV.axes.orig <-
+  as.data.frame(CV.axes.orig.mtx)
+
+plot_CV.back3 <-
+  ggplot() +
+  draw_axes(CV.axes.orig, 4 * CV1, 4 * CV2, alpha=0.5) + 
+  label_axes(CV.axes.orig, 4.5 * CV1, 4.5 * CV2, label = c("CV1","CV2")) +    
+  draw_grouped_points(CV.scores.orig, Sepal.Length, Sepal.Width, Species) +
+  labs(x = "Sepal Length", y = "Sepal Width") +
+  coord_fixed() + 
+  theme(legend.position = "top")  
+
+plot_CV.back3
+```
+
+
+```{r, fig.width=10, fig.height=3.25,echo=FALSE,eval=FALSE}
+plot_grid(plot_CV.back1, plot_CV.back2, plot_CV.back3, align = 'v', nrow=1, labels=c("AUTO"))
+ggsave("CVA-steps7to9.pdf")
+```
+
+
+# CVA without the intermediate steps
+
+```{r}
+# Cacluate the  eigenvectors of W^{-1}B
+WinvB = solve(cov.win) %*% cov.btw
+eigin.WinvB = eigen(WinvB)
+
+cva.vecs <- Re(eigin.WinvB$vectors)[,1:ngroups-1]
+cva.vals <- Re(eigin.WinvB$values)[1:ngroups-1]
+
+unscaled.scores <- win.deviates %*% cva.vecs
+
+# figure out scaling so group covariance matrix is spherical
+scaling <- diag(1/sqrt((t(unscaled.scores) %*% unscaled.scores)/(nobs-ngroups)))
+
+# compare to "scaling" component object returned by lda()
+scaled.cva.vecs <- cva.vecs %*% diag(scaling) 
+
+cva.scores <- iris.sepals.mtx %*% scaled.cva.vecs
+
+colnames(cva.scores) <- c("CV1","CV2")
+cva.scores <- as.data.frame(cva.scores)
+cva.scores$Species <- iris.sepals$Species
+```
+
+```{r}
+ggplot(cva.scores, aes(x = CV1, y = CV2)) + 
+  geom_point(aes(color=Species, shape=Species)) + 
+  coord_fixed()
+```

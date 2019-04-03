@@ -67,3 +67,6 @@ rsconnect/
 /slides/singular-value-decomposition/slides-svd.fdb_latexmk
 /slides/singular-value-decomposition/slides-svd.aux
 /slides/singular-value-decomposition/slides-svd.synctex.gz
+*.aux
+*.fdb_latexmk
+*.synctex.gz
