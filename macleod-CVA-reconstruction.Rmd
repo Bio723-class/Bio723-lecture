@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Re-creating MacLeod's CVA Example"
 output:
   html_document:
     df_print: paged
@@ -22,12 +22,61 @@ library(rlang)
 First we'll change a few of the defaults so we have consistent scatter plots with easily distinguishable symbol shapes and colors.
 
 ```{r, echo=TRUE}
-update_geom_defaults("point", list(size=3, stroke=1))
+update_geom_defaults("point", list(size=2, stroke=1))
 scale_colour_discrete <- function(...) scale_color_d3(palette="category10")
 scale_shape_discrete <- function(...) scale_shape_few()
 ```
 
-# Plotting function
+
+# MacLeod's illustrative example of CVA
+
+Norman MacLeod (Natural History Museum, London) has published a very nice series of tutorials/essays in the Paleontological Association Newsletter that cover key methods in multivariate statistics (see [PalaeoMath](https://www.palass.org/publications/newsletter/palaeomath-101). MacLeod's article on [Canonical Variates Analysis](https://www.palass.org/sites/default/files/media/palaeomath_101/article_11/article_11.pdf) does a nice job of explaining how CVA can be implemented as a two-step PCA.  However, there are some errors in several of the figures.  This notebook corrects these errors, and illustrates how to generate the correct figures.
+
+# Examplar data set
+
+MacLeod uses famous Anderson (Fisher) iris data set to illustrate CVA.  His example data set is composed of the first twenty-five specimens from each species.
+
+```{r}
+first25 <- iris %>%
+  group_by(Species) %>%
+  group_map(~head(., 25)) %>% # useful dplyr fxn, read the docs!
+  ungroup
+```
+
+MacLeod states "in our geometric example analysis we’ll reduce the Table 1 data to just two variables: petal width and petal length" and all of his figures using these two variables as the axes of the untransformed data.  However, if we plot these data it's clear that **the figures he illustrates are based on sepal width and length NOT petal width and length***. Note that his figures also clearly show the data has been mean centered so we'll do that as well.
+
+```{r, fig.width=10, fig.height=3}
+iris.sepals <- 
+  first25 %>%
+  dplyr::select(Species, Sepal.Length, Sepal.Width) %>%
+  mutate_if(is.numeric, function(x) {x - mean(x)})
+
+iris.petals <- 
+  first25 %>%
+  dplyr::select(Species, Petal.Length, Petal.Width) %>%
+  mutate_if(is.numeric, function(x) {x - mean(x)})
+
+plot_sepals <- 
+  iris.sepals %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, shape = Species, color = Species)) +
+  geom_point() +
+  labs(title = "First 25 specimens each iris species\nSepal variables")
+
+plot_petals <- 
+  iris.petals %>%
+  ggplot(aes(x = Petal.Length, y = Petal.Width, shape = Species, color = Species)) +
+  geom_point() + 
+  labs(title = "First 25 specimens of each iris species\nPetal variables")
+
+plot_grid(plot_sepals, plot_petals, labels="AUTO")
+```
+
+Compare the figures above to MacLeod's figure 2A. MacLeod's analyses are clearly based on the Sepal variables.  In the following analyses that's what we'll use so our results can be compared to his.
+
+
+# Plotting functions
+
+We'll be producing lots of plots of the same type below.  To cut down on boiler plate I've written some "wrapper functions" to automate specifying some of the parameters of geoms.  Note that the code below uses "Non-Standard Evaluation" (NSE) so that we can pass naked variable names to our functions in the same way that ggplot and dplyr do. NSE is a type of "metaprogramming" (writing programs with programs). For more about NSE see [Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html) and [Wickham's Advanced R](http://adv-r.had.co.nz/Computing-on-the-language.html)).
 
 ```{r}
 draw_grouped_points <- function(data, x, y, group, ...) {
@@ -92,15 +141,12 @@ iris.sepals <-
   ungroup %>%
   mutate_if(is.numeric, scale, center=TRUE, scale=FALSE)
 
-iris.sepals.mtx <- 
-  iris.sepals %>% 
-  dplyr::select(-Species) %>% # drop Species column 
-  as.matrix  # cast to matrix for calculations  
+
 ```
 
 ## Original data
 
-First a scatter plot of the data in the space of the original variables:
+First let's create plot of the data in the space of the original variables. Since some of the points overlap we'll add a fixed amount of jitter (so the points match from figure to figure).
 
 ```{r}
 fixed.jitter <- position_jitter(height=0.05, width=0.05, seed = 20190328)
@@ -165,6 +211,13 @@ btw.deviates <-
 # Between group SSQ and covariance
 ssq.btw <- ngroups * t(btw.deviates) %*% btw.deviates
 cov.btw <- ssq.btw/(ngroups-1)
+
+# a matrix representation of the original data (minus the Species column)
+# we'll be useful for various calculations
+iris.sepals.mtx <- 
+  iris.sepals %>% 
+  dplyr::select(-Species) %>% # drop Species column 
+  as.matrix  # cast to matrix for calculations  
 ```
 
 
