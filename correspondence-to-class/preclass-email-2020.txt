@@ -1,0 +1,40 @@
+
+Dear Bio 723 participants,
+
+As you are aware, today is the first day of the 2020 Spring semester.  However, due to the way the Duke academic calendar works "the Monday class meeting schedule is in effect on this day" (see: https://registrar.duke.edu/calendars-key-dates/current-academic-calendar/spring-2020-academic-calendar).  This means our first Bio 723 class session is not until next week -- Wed, Jan 15.
+
+Since our first class session is delayed a week, I'd like you to complete some basic tasks **BEFORE** our first class session.  This will allow us to get a jump start on our journey into scientific computing!
+
+1. Checkout the course wiki at:  https://github.com/Bio723-class/Bio723-lecture/wiki
+
+2. Install the latest versions of R and RStudio on your computer
+
+   - The latest version (3.6.2) of R can be downloaded from one of the links below:
+        -- Windows: https://cran.cnr.berkeley.edu/bin/windows/base/
+        -- Mac OS X: https://cran.cnr.berkeley.edu/bin/macosx/
+        -- Other platforms: https://cran.cnr.berkeley.edu/
+
+
+   - RStudio is a convenient "front end" for working with R. You can download the free, open-source version of "RStudio Desktop" from this link: https://rstudio.com/products/rstudio/download/ (choose the Open Source License)
+
+3. Read the Chapters 1 to 3 in the Bio 723 workbook: https://bio723-class.github.io/Bio723-book/index.html. As you read the workbook work through the included code examples.
+
+## Waiting list / Auditing
+
+If you are currently on the waiting list to enroll in Bio 723 I will be able to accomodate you, as we've been able to recruit a TA for this semester. Please show up to the first class session and I will provide you a permission number at that time.
+
+Due to the hands-on nature of this course, I do not allow students to take Bio 723 for "Audit" credit. I encourage you to consider enrolling in the course in a future semester if you are interested in the material.
+
+
+## Required background
+
+Bio 723 assumes you've got a working familiarity with basic statistical concepts (e.g. what would typically be covered in an intro biostats course).  This includes familiarity with standard measures of location (mean, median), spread (variation, standard deviation), and association (covariance, correlation) as well as working familiarity with the "standard toolbox" of statistical methods commonly employed in biological studies (t-tests, ANOVA, linear regression, Chi-squared tests, etc).  
+
+If your stats skills are rusty, a nice resource to review is a series of columns published in Nature Methods, entitled "Points of Significance". These points of significance columns review key statistical concepts, with the "working biologist" in mind.
+
+  https://www.nature.com/collections/qghhqm/pointsofsignificance
+
+I look forward to meeting you all in person on the 15th!
+
+Best wishes,
+Paul Magwene
