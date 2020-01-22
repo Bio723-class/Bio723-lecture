@@ -353,7 +353,7 @@ example.df
 ```
 
 
-## Data frame indexing and shape
+## Data frames: shape and column indexing
 
 Shape 
 
@@ -375,4 +375,39 @@ Indexing with a vector to subset columns
 example.df[c("name","grade")]
 ```
 
+## Data frames: indexing rows
 
+To index one or more rows of a data frame, specifying the value(s) to index on followed by a comma:
+
+```{r}
+example.df[1,]  # first row
+```
+
+```{r}
+example.df[c(1,3),] # first and third row
+```
+
+You can simultaneously index both rows and columns:
+
+```{r}
+example.df[c(1,3), c("name", "age")]
+```
+
+## Matrices
+
+In R matrices are two-dimensional collections of elements all of which have the same mode or type (homogenous). 
+
+```{r}
+r <- matrix(1:12, nrow=3, ncol = 4)
+r
+```
+
+Matrices don't by default have explicit row or column names, but they can be assigned/retrieved using the `rownames()` and `colnames()` functions respectively.
+
+```{r}
+colnames(r) <- c("N", "C", "O2", "PO4")
+rownames(r) <- c("Site.A", "Site.B", "Site.C")
+r
+```
+
+We will typically prefer data frames to matrices, because data frames are more flexible. But we'll return to matrices when we get into linear algebra later in the semester.
