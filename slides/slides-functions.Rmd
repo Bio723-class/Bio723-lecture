@@ -237,7 +237,7 @@ Class participation. What are the mathematical formulae for the following statis
 5. Correlation
 
 
-In-class assignment: Write for-loop and "vectorized" implementations of each of the above statistical functions.
+In-class assignment: Write for-loop based implementations of each of the above statistical functions.
 
 
 
