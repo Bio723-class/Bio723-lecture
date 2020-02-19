@@ -9,7 +9,8 @@
 \usepackage[inline]{asymptote}
 \usepackage{attachfile2}
 \usepackage{asyfig}
-
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
 
 
 
@@ -30,32 +31,32 @@
 \titlepage
 \end{frame}
 
-%===========================================================
-\begin{frame}
-  \frametitle{Overview of Lecture}
+% %===========================================================
+% \begin{frame}
+%   \frametitle{Overview of Lecture}
   
-\begin{itemize}
-	\item Introduction to Matrices
-		\begin{itemize}
-			\item Matrices as collections of vectors
-			\item Special matrices
-		\end{itemize}
-		\item Matrix operations
-		\begin{itemize}
-			\item Matrix addition, subtraction
-			\item Matrix multiplication
-		  \item Transpose			
-		  \item More special matrices		  
-		\end{itemize}		
-	  \item Matrices concepts		
-		\item Linear dependence/independence
-		\item Matrix inverses		
-		\item Solving simultaneous linear equations
-	  \item Multiple regression
-\end{itemize}
+% \begin{itemize}
+% 	\item Introduction to Matrices
+% 		\begin{itemize}
+% 			\item Matrices as collections of vectors
+% 			\item Special matrices
+% 		\end{itemize}
+% 		\item Matrix operations
+% 		\begin{itemize}
+% 			\item Matrix addition, subtraction
+% 			\item Matrix multiplication
+% 		  \item Transpose			
+% 		  \item More special matrices		  
+% 		\end{itemize}		
+% 	  \item Matrices concepts		
+% 		\item Linear dependence/independence
+% 		\item Matrix inverses		
+% 		\item Solving simultaneous linear equations
+% 	  \item Multiple regression
+% \end{itemize}
 
-\end{frame}
-%===========================================================
+% \end{frame}
+% %===========================================================
 
 
 
@@ -487,6 +488,36 @@ I = \left[ \begin{array}{cccc}
 
 %===========================================================
 \begin{frame}
+  \frametitle{Matrix Inverse}
+
+\begin{itemize}
+\item If $A$ is a \emph{square matrix} and $C$ is a matrix of the same size where $AC = I$ and $CA=I$ than $C$ is the inverse of $A$ and we denote it as \Inv{A}.
+\[
+A\Inv{A} = \Inv{A}A = I
+\]
+
+\item Rules for inverses:
+
+\begin{itemize}
+ \item Only square matrices are invertible; but not every square matrix can be inverted
+ \item A matrix for which we can find an inverse is called \emph{\textbf{invertible}} (non-singular)
+ \item A matrix for which no inverse exists is \emph{\textbf{singular}} (non-invertible)
+ \item Any diagonal matrix, $A$, where the $a_{ii}$ are non-zero, is invertible
+ \item If $A$ and $B$ are both invertible $p \times p$ matrices than $\Inv{(AB)} = \Inv{B} \Inv{A}$ (note change in order).
+\end{itemize}
+ 
+\end{itemize}
+
+% \begin{Highlight}
+%   If a matrix is invertible than it's columns form a linearly independent list of vectors!
+% \end{Highlight}
+
+\end{frame}
+%===========================================================
+
+
+%===========================================================
+\begin{frame}
   \frametitle{}
 \begin{center}
 \begin{Huge}
@@ -571,64 +602,34 @@ $\Mtx{V}_{ii} = 1/\sqrt{\Mtx{S}_{ii}}$.
 %===========================================================
 
 
-%===========================================================
-\begin{frame}
-  \frametitle{}
-\begin{center}
-\begin{Huge}
-{\rmfamily Linear dependence and independence}
-\end{Huge}
-\end{center}
-\end{frame}
-%===========================================================
+% %===========================================================
+% \begin{frame}
+%   \frametitle{Matrix Inverses}
 
-%===========================================================
-\begin{frame}
-  \frametitle{Linear dependence and independence}
+% \begin{itemize}
+% \item If $A$ is a \emph{square matrix} and $C$ is a matrix of the same size where $AC = I$ and $CA=I$ than $C$ is the inverse of $A$ and we denote is \Inv{A}.
+% \[
+% A\Inv{A} = \Inv{A}A = I
+% \]
 
-\begin{itemize}
-\item You'll remember that a \emph{linear combination} of vectors is an equation of the form $z = b_1 \Mtx{x}_1 + b_2 \Mtx{x}_2 + \cdots + b_p \Mtx{x}_p$
+% \item Rules for inverses:
 
-\item A list of vectors, $\Mtx{x}_1, \Mtx{x}_2, ..., \Mtx{x}_p$ , is said the be \emph{\textbf{linearly dependent}} if there is a non-trivial combination of them which is  equal to the zero vector.
-\[
- b_1 \Mtx{x}_1 + b_2 \Mtx{x}_2 + \cdots + b_p \Mtx{x}_p = 0
-\]
-
-\item A list of vectors that are not linearly dependent are said to be \emph{\textbf{linearly independent}} 
-
-\end{itemize}
-
-\end{frame}
-%===========================================================
-
-%===========================================================
-\begin{frame}
-  \frametitle{Matrix Inverses}
-
-\begin{itemize}
-\item If $A$ is a \emph{square matrix} and $C$ is a matrix of the same size where $AC = I$ and $CA=I$ than $C$ is the inverse of $A$ and we denote is \Inv{A}.
-\[
-A\Inv{A} = \Inv{A}A = I
-\]
-
-\item Rules for inverses:
-
-\begin{itemize}
- \item Only square matrices are invertible; but not every square matrix can be inverted
- \item A matrix for which we can find an inverse is called \emph{\textbf{invertible}} (non-singular)
- \item A matrix for which no inverse exists is \emph{\textbf{singular}} (non-invertible)
- \item Any diagonal matrix, $A$, where the $a_{ii}$ are non-zero, is invertible
- \item If $A$ and $B$ are both invertible $p \times p$ matrices than $\Inv{(AB)} = \Inv{B} \Inv{A}$ (note change in order).
-\end{itemize}
+% \begin{itemize}
+%  \item Only square matrices are invertible; but not every square matrix can be inverted
+%  \item A matrix for which we can find an inverse is called \emph{\textbf{invertible}} (non-singular)
+%  \item A matrix for which no inverse exists is \emph{\textbf{singular}} (non-invertible)
+%  \item Any diagonal matrix, $A$, where the $a_{ii}$ are non-zero, is invertible
+%  \item If $A$ and $B$ are both invertible $p \times p$ matrices than $\Inv{(AB)} = \Inv{B} \Inv{A}$ (note change in order).
+% \end{itemize}
  
-\end{itemize}
+% \end{itemize}
 
-\begin{Highlight}
-  If a matrix is invertible than it's columns form a linearly independent list of vectors!
-\end{Highlight}
+% \begin{Highlight}
+%   If a matrix is invertible than it's columns form a linearly independent list of vectors!
+% \end{Highlight}
 
-\end{frame}
-%===========================================================
+% \end{frame}
+% %===========================================================
 
 %===========================================================
 \begin{frame}
@@ -649,26 +650,104 @@ A\Inv{A} = \Inv{A}A = I
 \begin{itemize}
 
 \item A set of simultaneous linear equations are equations like the following:
+
+
 \begin{eqnarray*}
-x_1 + 3x_2 + 2x_3 & = & 3\\
--x_1 + x_2 + 2x_3 & = & -2\\
-2x_1 + 4x_2 -2x_3 & = & 10
+2x  +   y   &=&   4 \\
+x   -   y   &=&   -1
+\end{eqnarray*}
+
+or
+ 
+\begin{eqnarray*}
+x + 3y+ 2z & = & 3\\
+-x + y + 2z & = & -2\\
+2x + 4y -2z & = & 10
 \end{eqnarray*}
 
 
-\item Simultaneous linear equations have either:
+\end{itemize}
 
-\begin{itemize}
- \item No solutions
- \item One solution
- \item Infinitely many solutions
-\end{itemize}
- 
-\end{itemize}
+
+
+
+
+% \item Simultaneous linear equations have either:
+
+% \begin{itemize}
+%  \item No solutions
+%  \item One solution
+%  \item Infinitely many solutions
+% \end{itemize}
 
 
 \end{frame}
 %===========================================================
+
+%===========================================================
+\begin{frame}[fragile]
+  \frametitle{Solving Simultaneous Linear Equations}
+
+Solving a set of simultaneous equations means to find values of the variables where all the equations are true.
+
+\begin{eqnarray*}
+2x  +   y   &=&   4 \\
+x   -   y   &=&   -1
+\end{eqnarray*}
+
+\medskip
+
+
+\begin{center}
+% \begin{tikzpicture}[x=0.3cm, y=0.3cm,domain=-3:5,range=-3:5]
+      % \draw[->] (-3,0) -- (5.2,0) node[right] {$x$};
+      % \draw[->] (0,-3) -- (0,5.2) node[above] {$y$};
+      % \draw[smooth,variable=\x,red]  plot ({\x},{4-2*\x}) node[right] {$2x + y =4$};
+      % \draw[smooth,variable=\x,blue] plot ({\x},{1+\x}) node[right] {$x + y = -1$};
+
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.6\textwidth,
+    xlabel={x},
+    ylabel={y},
+    restrict y to domain=-2:5,
+    axis lines=middle, 
+    domain=-2:5,
+    samples=100,
+    xmin=-2, xmax=5,
+    ymin=-2, ymax=5,
+    enlarge y limits={rel=0.2},
+    enlarge x limits={rel=0.2},
+]
+
+    \addplot[red] {4-2*x} node[right,pos=1,font=\footnotesize] {$2x + y = 4$};
+    \addplot[blue] {1+x} node[left,pos=1,font=\footnotesize] {$x + y = -1$};
+
+\end{axis}      
+\end{tikzpicture}
+
+\end{center}
+
+
+\end{frame}
+%===========================================================  
+
+%===========================================================
+\begin{frame}
+  \frametitle{Solutions to Simultaneous Linear Equations}
+
+Solutions to simultaneous linear equations have either:
+
+\begin{itemize}
+ \item No solutions -- inconsistent
+ \item One solution -- consistent
+ \item Infinitely many solutions -- underdetermined
+\end{itemize}
+
+\end{frame}
+%===========================================================  
+
+
 
 %===========================================================
 \begin{frame}
@@ -733,6 +812,168 @@ x_1 \\ x_2 \\ x_3
 
 \end{frame}
 %===========================================================
+
+
+
+%===========================================================
+\begin{frame}
+  \frametitle{}
+\begin{center}
+\begin{Huge}
+{\rmfamily Matrix Concepts}
+\end{Huge}
+\end{center}
+\end{frame}
+%===========================================================
+
+
+% %===========================================================
+% \begin{frame}
+%   \frametitle{Linear Dependence and Simultaneous Linear Equations}
+
+% Recall that sets of simultaneous linear equations have either:
+
+% \begin{itemize}
+%  \item No solutions
+%  \item One solution
+%  \item Infinitely many solutions
+% \end{itemize}
+
+% If the linear
+
+% \end{frame}
+% %===========================================================  
+
+
+
+
+%===========================================================
+\begin{frame}
+  \frametitle{Space Spanned by a List of Vectors}
+
+
+\begin{block}{Definition}
+
+Let $X$ be a finite list of $n$-vectors. The \textbf{space spanned} by $X$ is the set of all vectors that can be written as linear combinations of the vectors in $X$.
+\medskip
+
+% A space spanned includes the zero vector and is closed under addition and multiplication by a scalar.
+
+\end{block}
+\bigskip
+
+Remember that a \emph{linear combination} of vectors is an equation of the form $z = b_1 \Mtx{x}_1 + b_2 \Mtx{x}_2 + \cdots + b_p \Mtx{x}_p$
+
+\end{frame}
+
+%===========================================================
+
+%===========================================================
+\begin{frame}
+  \frametitle{Linear dependence and independence}
+
+\begin{itemize}
+% \item You'll remember that a \emph{linear combination} of vectors is an equation of the form $z = b_1 \Mtx{x}_1 + b_2 \Mtx{x}_2 + \cdots + b_p \Mtx{x}_p$
+
+\item A list of vectors, $\Mtx{x}_1, \Mtx{x}_2, ..., \Mtx{x}_p$ , is said the be \emph{\textbf{linearly dependent}} if there is a non-trivial linear combination of them which is  equal to the zero vector.
+\[
+ b_1 \Mtx{x}_1 + b_2 \Mtx{x}_2 + \cdots + b_p \Mtx{x}_p = 0
+\]
+
+\item A list of vectors that are not linearly dependent are said to be \emph{\textbf{linearly independent}} 
+
+\end{itemize}
+
+\end{frame}
+%===========================================================
+
+
+
+
+
+%===========================================================
+\begin{frame}
+  \frametitle{Subspaces}
+
+$\RealN$  denotes the seat of real $n$-vectors - the set of all $n \times 1$ matrices with entries from the set $\Real$ of real numbers.
+\medskip
+
+\begin{block}{Definition}
+
+A \textbf{subspace} of $\Real^n$ is a subset S of $\Real^n$ with the following properties:
+\begin{enumerate}
+	\item $\Mtx{0} \in S$
+	\item If $\Mtx{u} \in S$ then $k\Mtx{u} \in S$ for all real numbers $k$
+	\item If $\Mtx{u} \in S$ and  $\Mtx{v} \in S$ then $\Mtx{u} + \Mtx{v} \in S$
+\end{enumerate}
+
+\end{block}
+
+Examples of subspaces of $\Real^n$:
+\begin{itemize}
+	\item any space spanned by a list of vectors in $\Real^n$
+	\item the set of all solutions to an equation $A\Mtx{x} = \Mtx{0}$ where $A$ is a $p \times n$ matrix, for any number p.
+\end{itemize}
+
+\end{frame}
+%===========================================================
+
+%===========================================================
+\begin{frame}
+  \frametitle{Basis}
+
+Let $S$ be a subspace of \RealN.  Then there is a finite list, $X$, of vectors from $S$ such that $S$ is the space spanned by $X$.
+\medskip
+
+Let $S$ be a subspace of $\RealN$ spanned by the list $(u_1, u_2, \ldots, u_n)$. Then there is a linearly independent sublist of $(u_1, u_2, \ldots, u_n)$ that also spans $S$.
+\medskip
+
+\begin{block}{Definition}
+A list $X$ is a \textbf{basis} for $S$ if:
+\begin{itemize}
+\item $X$ is linearly independent
+\item $S$ is the subspace spanned by $X$
+\end{itemize}
+\end{block}
+
+\end{frame}
+%===========================================================
+
+%===========================================================
+\begin{frame}
+  \frametitle{Dimension}
+Let $S$ be a subspace of \RealN.
+\bigskip
+
+\begin{block}{Definition}
+The \textbf{dimension} of $S$ is the number of elements in a basis for $S$.
+\end{block}
+
+\end{frame}
+%===========================================================
+
+
+%===========================================================
+\begin{frame}
+  \frametitle{Rank of a Matrix}
+Let $A$ by an $n \times p$ matrix.
+\bigskip
+
+\begin{block}{Definition}
+The \textbf{rank} of $A$ is equal to the dimension of the row or column space of $A$.
+
+\end{block}
+\bigskip
+Where the row space of $A$ is the space spanned by the row vectors of $A$ and the column space of $A$ is defined similarly.
+
+\end{frame}
+%===========================================================
+
+
+
+
+\end{document}
+
 
 
 %===========================================================
@@ -887,9 +1128,9 @@ In addition to the regression coefficients, the \textbf{regression ``loadings''}
 \end{center}
 
 Individual loadings can be calculated as:
-		\[
-		\cos \theta_{\vec{x_j},\vec{\widehat{y}}} = \frac{\vec{x_j} \cdot \vec{\widehat{y}}}{|\vec{x_j}||\vec{\widehat{y}}|}
-		\]
+        \[
+        \cos \theta_{\vec{x_j},\vec{\widehat{y}}} = \frac{\vec{x_j} \cdot \vec{\widehat{y}}}{|\vec{x_j}||\vec{\widehat{y}}|}
+        \]
 
 
 \end{frame}
@@ -928,8 +1169,8 @@ $$
 
 \begin{itemize}
     \item Comparing the size of regression coefficients only makes sense if all the predictor variables have the same scale
-	\item The predictor variables  (columns of $\Mtx{X}$) must be linearly independent; when they're not the variables are \textbf{multicollinear}
-	\item Predictor variables that are \textbf{nearly multicollinear} are, perhaps, even more difficult to deal with
+    \item The predictor variables  (columns of $\Mtx{X}$) must be linearly independent; when they're not the variables are \textbf{multicollinear}
+    \item Predictor variables that are \textbf{nearly multicollinear} are, perhaps, even more difficult to deal with
 \end{itemize}
 
 \end{frame}
@@ -958,17 +1199,15 @@ $$
   \frametitle{What can I do if my predictors are (nearly) collinear?}
 
 \begin{itemize}
-	\item Drop some of the linearly dependent sets of predictors.
-	\item Replace the linearly dependent predictors with a combined variable.
-	\item Define orthogonal predictors, via linear combinations of the original variables (PC regression approach)
-	\item `Tweak' the predictor variables so that they're no longer multicollinear (Ridge regression).
+    \item Drop some of the linearly dependent sets of predictors.
+    \item Replace the linearly dependent predictors with a combined variable.
+    \item Define orthogonal predictors, via linear combinations of the original variables (PC regression approach)
+    \item `Tweak' the predictor variables so that they're no longer multicollinear (Ridge regression).
 \end{itemize}
 
 
 \end{frame}
 %===========================================================
-
-\end{document}
 
 
 %===========================================================
@@ -1136,119 +1375,3 @@ A = \left[
 %===========================================================
 
 
-
-%===========================================================
-\begin{frame}
-  \frametitle{}
-\begin{center}
-\begin{Huge}
-{\rmfamily Spaces, subspaces, bases, dimension, and rank}
-\end{Huge}
-\end{center}
-\end{frame}
-%===========================================================
-
-
-%===========================================================
-\begin{frame}
-  \frametitle{Space Spanned by a List of Vectors}
-
-
-\begin{block}{Definition}
-
-Let $X$ be a finite list of $n$-vectors. The \textbf{space spanned} by $X$ is the set of all vectors that can be written as linear combinations of the vectors in $X$.
-\medskip
-
-A space spanned includes the zero vector and is closed under addition and multiplication by a scalar.
-
-\end{block}
-\bigskip
-
-Remember that a \emph{linear combination} of vectors is an equation of the form $z = b_1 \Mtx{x}_1 + b_2 \Mtx{x}_2 + \cdots + b_p \Mtx{x}_p$
-
-\end{frame}
-
-%===========================================================
-
-
-%===========================================================
-\begin{frame}
-  \frametitle{Subspaces}
-
-$\RealN$  denotes the seat of real $n$-vectors - the set of all $n \times 1$ matrices with entries from the set $\Real$ of real numbers.
-\medskip
-
-\begin{block}{Definition}
-
-A \textbf{subspace} of $\Real^n$ is a subset S of $\Real^n$ with the following properties:
-\begin{enumerate}
-	\item $\Mtx{0} \in S$
-	\item If $\Mtx{u} \in S$ then $k\Mtx{u} \in S$ for all real numbers $k$
-	\item If $\Mtx{u} \in S$ and  $\Mtx{v} \in S$ then $\Mtx{u} + \Mtx{v} \in S$
-\end{enumerate}
-
-\end{block}
-
-Examples of subspaces of $\Real^n$:
-\begin{itemize}
-	\item any space spanned by a list of vectors in $\Real^n$
-	\item the set of all solutions to an equation $A\Mtx{x} = \Mtx{0}$ where $A$ is a $p \times n$ matrix, for any number p.
-\end{itemize}
-
-\end{frame}
-%===========================================================
-
-%===========================================================
-\begin{frame}
-  \frametitle{Basis}
-
-Let $S$ be a subspace of \RealN.  Then there is a finite list, $X$, of vectors from $S$ such that $S$ is the space spanned by $X$.
-\medskip
-
-Let $S$ be a subspace of $\RealN$ spanned by the list $(u_1, u_2, \ldots, u_n)$. Then there is a linearly independent sublist of $(u_1, u_2, \ldots, u_n)$ that also spans $S$.
-\medskip
-
-\begin{block}{Definition}
-A list $X$ is a \textbf{basis} for $S$ if:
-\begin{itemize}
-\item $X$ is linearly independent
-\item $S$ is the subspace spanned by $X$
-\end{itemize}
-\end{block}
-
-\end{frame}
-%===========================================================
-
-%===========================================================
-\begin{frame}
-  \frametitle{Dimension}
-Let $S$ be a subspace of \RealN.
-\bigskip
-
-\begin{block}{Definition}
-The \textbf{dimension} of $S$ is the number of elements in a basis for $S$.
-\end{block}
-
-\end{frame}
-%===========================================================
-
-
-%===========================================================
-\begin{frame}
-  \frametitle{Rank of a Matrix}
-Let $A$ by an $n \times p$ matrix.
-\bigskip
-
-\begin{block}{Definition}
-The \textbf{rank} of $A$ is equal to the dimension of the row space of $A$ which is equal to the dimension of the column space of $A$.
-\end{block}
-\bigskip
-Where the row space of $A$ is the space spanned by the list of rows of $A$ and the column space of $A$ is defined similarly.
-
-\end{frame}
-%===========================================================
-
-
-
-
-\end{document}
