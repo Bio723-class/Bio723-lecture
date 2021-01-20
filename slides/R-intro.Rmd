@@ -45,12 +45,21 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 
 1. Provide the tools and knowledge to conduct reproducible computational and statistical research.
 
+## Syllabus
+
+1. R Basics, data munging, and visualization
+
+1. Introduction to multivariate statistics from a geometric perspective
+
+1. A survey of common machine learning methods -- clustering, classification, dimensionality reduction
+
+1. Building bioinformatics pipelines
+
 
 ## Course mechanics
 
 * Instructor and TA contact information
 * Texts
-* Syllabus
 * Grading
 * Expectations and Policies
 
