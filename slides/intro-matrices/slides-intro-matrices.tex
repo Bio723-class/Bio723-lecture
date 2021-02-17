@@ -324,6 +324,165 @@ Note that $A\Mtx{x}$ is a vector with shape $n \times 1$. The $i$-the element of
 
 %===========================================================
 
+
+
+%===========================================================
+\begin{frame}
+  \frametitle{Matrices as Linear Transformations}
+
+\begin{itemize}  
+
+\item Let $A$ be a particular $n \times p$ matrix. Than for any $p$-vector \Mtx{x}, the product $A\Mtx{x}$ is a $n$-vector.
+
+\item We say that the matrix $A$ determines a function from $\Real^p$ to $\Real^n$.  
+
+\begin{itemize}
+\item $A(k \Mtx{x}) = k(A \Mtx{x})$ where $k$ is a scalar.
+\item If \Mtx{y} is also a $p$-vector than $A(\Mtx{x}+\Mtx{y}) = A\Mtx{x} + A\Mtx{y}$ is  an $n$-vector
+\end{itemize}
+
+
+\item A function, $\mathit{f}$, where $\mathit{f}(\Mtx{x} + \Mtx{y}) = \mathit{f}(\Mtx{x}) + \mathit{f}(\Mtx{y})$ and $\mathit{f}(k\Mtx{x}) = k\mathit{f}(\Mtx{x})$ is called a \emph{\textbf{linear transformation}}.
+
+\end{itemize}
+
+\begin{Highlight}
+Every matrix determines a linear transformation!
+
+\medskip
+
+Every linear transformation can be represented by a matrix!
+\end{Highlight}
+
+\end{frame}
+%===========================================================
+
+%===========================================================
+\begin{frame}
+  \frametitle{Examples of Linear Transformation: Rotation}
+
+
+\begin{itemize}
+\item The rotation of the plane, by an angle $\theta$ about the origin is given by:
+\[
+A = \left[
+\begin{array}{cc}
+\cos \theta & -\sin \theta\\ 
+\sin \theta & \cos \theta 
+\end{array}
+\right]
+\]
+\end{itemize}
+
+\begin{center}
+
+\begin{tikzpicture}[x=0.5cm, y=0.5cm]
+
+\draw[step=0.5cm, style=help lines] (-1.9,-2.9) grid (6.9,4.9);
+\draw (-2,0) -- (7,0);
+\draw (0,-3) -- (0,4);
+
+\draw[thick,->] (0,0) -- (3,2);
+\draw (2,1) node[below right] {\Mtx{x}};
+
+\draw[thick,red,->] (0,0) -- (1.01,3.46);
+\draw (1,3) node[above left] {$A\Mtx{x}$};
+
+\draw (0,0) +(34:0.5cm) arc (34:74:0.5cm);
+\path (0,0) ++(54:0.7cm) node[font=\footnotesize] {$\theta$};
+
+%\draw (1.5,1) arc (34:74:1cm);
+%\path (0,0) ++(55:1.1cm) node[font=\footnotesize] {$\theta$};
+
+\end{tikzpicture}
+
+\end{center}
+
+
+\end{frame}
+%===========================================================
+
+
+
+
+%===========================================================
+\begin{frame}
+  \frametitle{Examples of Linear Transformation in $\Real^2$}
+
+{\small What matrices represent these transformation in the Cartesian plane ($\Real^2$)?}
+
+
+\begin{itemize}
+\item reflection in the $x$-axis
+\[
+\left[
+\begin{array}{c}
+x \\ y 
+\end{array}
+\right]
+\mapsto
+\left[
+\begin{array}{c}
+x \\ -y 
+\end{array}
+\right]
+\]
+
+\item reflection in the line $y = x$
+\[
+\left[
+\begin{array}{c}
+x \\ y 
+\end{array}
+\right]
+\mapsto
+\left[
+\begin{array}{c}
+y \\ x 
+\end{array}
+\right]
+\]
+
+\item shear parallel to the $x$-axis
+\[
+\left[
+\begin{array}{c}
+x \\ y 
+\end{array}
+\right]
+\mapsto
+\left[
+\begin{array}{c}
+x+ay \\ y 
+\end{array}
+\right]
+\]
+
+\item projection onto the $x$-axis
+\[
+\left[
+\begin{array}{c}
+x \\ y 
+\end{array}
+\right]
+\mapsto
+\left[
+\begin{array}{c}
+x \\ 0 
+\end{array}
+\right]
+\]
+
+
+\item How about reflection in the $y$-axis? shear parallel to the $y$-axis? projection onto the $y$-axis?
+
+\end{itemize}
+
+\end{frame}
+%===========================================================
+
+
+
 %===========================================================
 \begin{frame}
   \frametitle{General Matrix Multiplication}
